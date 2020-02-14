@@ -257,6 +257,7 @@ extension ExampleViewController: ExampleViewDelegate {
             let banner = FloatingNotificationBanner(customView: NorthCarolinaBannerView())
             banner.delegate = self
             banner.transparency = 0.75
+            banner.bannerHeight = 80.0 + banner.spacerViewHeight() - banner.spacerViewDefaultOffset
             banner.show(queuePosition: selectedQueuePosition(),
                         bannerPosition: selectedBannerPosition(),
                         cornerRadius: 10,
