@@ -131,7 +131,7 @@ open class BaseNotificationBanner: UIView {
     internal var customView: UIView?
 
     /// The default offset for spacerView top or bottom
-    internal var spacerViewDefaultOffset: CGFloat = 10.0
+    public var spacerViewDefaultOffset: CGFloat = 10.0
 
     /// The maximum number of banners simultaneously visible on screen
     internal var maximumVisibleBanners: Int = 1
@@ -267,7 +267,7 @@ open class BaseNotificationBanner: UIView {
         }
     }
 
-    internal func spacerViewHeight() -> CGFloat {
+    public func spacerViewHeight() -> CGFloat {
         return NotificationBannerUtilities.isNotchFeaturedIPhone()
             && UIApplication.shared.statusBarOrientation.isPortrait
             && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0

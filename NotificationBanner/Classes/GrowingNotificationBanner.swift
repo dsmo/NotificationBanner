@@ -182,7 +182,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func spacerViewHeight() -> CGFloat {
+    override public func spacerViewHeight() -> CGFloat {
         return super.spacerViewHeight() + heightAdjustment
     }
 }
