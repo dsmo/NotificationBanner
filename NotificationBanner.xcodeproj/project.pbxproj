@@ -14,9 +14,7 @@
 		823255AF1EB87313006F95C3 /* BannerColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232559F1EB87313006F95C3 /* BannerColors.swift */; };
 		823255B01EB87313006F95C3 /* BannerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823255A01EB87313006F95C3 /* BannerStyle.swift */; };
 		823255B11EB87313006F95C3 /* BaseNotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823255A11EB87313006F95C3 /* BaseNotificationBanner.swift */; };
-		823255B21EB87313006F95C3 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823255A21EB87313006F95C3 /* NotificationBanner.swift */; };
 		823255B31EB87313006F95C3 /* NotificationBannerQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823255A31EB87313006F95C3 /* NotificationBannerQueue.swift */; };
-		823255B41EB87313006F95C3 /* StatusBarNotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823255A41EB87313006F95C3 /* StatusBarNotificationBanner.swift */; };
 		823255B61EB87313006F95C3 /* NotificationBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 823255A71EB87313006F95C3 /* NotificationBanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		823255B91EB8736D006F95C3 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 823255B81EB8736D006F95C3 /* Cartfile */; };
 		A999043F1EEF64F0006DA132 /* BannerHapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999043E1EEF64F0006DA132 /* BannerHapticGenerator.swift */; };
@@ -36,9 +34,7 @@
 		8232559F1EB87313006F95C3 /* BannerColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerColors.swift; sourceTree = "<group>"; };
 		823255A01EB87313006F95C3 /* BannerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerStyle.swift; sourceTree = "<group>"; };
 		823255A11EB87313006F95C3 /* BaseNotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationBanner.swift; sourceTree = "<group>"; };
-		823255A21EB87313006F95C3 /* NotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 		823255A31EB87313006F95C3 /* NotificationBannerQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBannerQueue.swift; sourceTree = "<group>"; };
-		823255A41EB87313006F95C3 /* StatusBarNotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarNotificationBanner.swift; sourceTree = "<group>"; };
 		823255A61EB87313006F95C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		823255A71EB87313006F95C3 /* NotificationBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationBanner.h; sourceTree = "<group>"; };
 		823255B81EB8736D006F95C3 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -101,10 +97,8 @@
 				A999043E1EEF64F0006DA132 /* BannerHapticGenerator.swift */,
 				823255A01EB87313006F95C3 /* BannerStyle.swift */,
 				823255A11EB87313006F95C3 /* BaseNotificationBanner.swift */,
-				823255A21EB87313006F95C3 /* NotificationBanner.swift */,
 				823255A31EB87313006F95C3 /* NotificationBannerQueue.swift */,
 				951D609C1F71BF82008E4BCC /* NotificationBannerUtilities.swift */,
-				823255A41EB87313006F95C3 /* StatusBarNotificationBanner.swift */,
 				F7E13CF51FB192ED0008EE4C /* NotificationBannerUtilities.swift */,
 				2B9A8468216538CA00A7418D /* GrowingNotificationBanner.swift */,
 				7ECA5718232FA42B00256BB9 /* FloatingNotificationBanner.swift */,
@@ -222,8 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63A905B2381423E00F70CEB /* UIWindow+orientation.swift in Sources */,
-				823255B41EB87313006F95C3 /* StatusBarNotificationBanner.swift in Sources */,
-				823255B21EB87313006F95C3 /* NotificationBanner.swift in Sources */,
 				2B9A846B216544E600A7418D /* String+heightForConstrainedWidth.swift in Sources */,
 				0D0D9ADF1F15D19D003B35A8 /* BannerPositionFrame.swift in Sources */,
 				7ECA5719232FA42B00256BB9 /* FloatingNotificationBanner.swift in Sources */,
