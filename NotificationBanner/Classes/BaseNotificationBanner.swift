@@ -17,7 +17,6 @@
  */
 
 import UIKit
-import SnapKit
 
 public protocol NotificationBannerDelegate: class {
     func notificationBannerWillAppear(_ banner: BaseNotificationBanner)
@@ -141,6 +140,9 @@ open class BaseNotificationBanner: UIView {
 
     /// Used by the banner queue to determine wether a notification banner was placed in front of it in the queue
     var isSuspended: Bool = false
+    
+    /// The height constraint of spacerView
+    private var spacerViewHeightConstraint: NSLayoutConstraint? = nil
 
     /// The main window of the application which banner views are placed on
     private let appWindow: UIWindow? = {
@@ -221,43 +223,47 @@ open class BaseNotificationBanner: UIView {
      */
     private func createBannerConstraints(for bannerPosition: BannerPosition) {
 
-        spacerView.snp.remakeConstraints { (make) in
+        if let superview = spacerView.superview {
+            NSLayoutConstraint.deactivate(spacerView.constraints)
+            
             if bannerPosition == .top {
-                make.top.equalToSuperview().offset(-spacerViewDefaultOffset)
+                spacerView.topAnchor.constraint(equalTo: superview.topAnchor, constant: -spacerViewDefaultOffset).isActive = true
             } else {
-                make.bottom.equalToSuperview().offset(spacerViewDefaultOffset)
+                spacerView.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -spacerViewDefaultOffset).isActive = true
             }
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            updateSpacerViewHeight(make: make)
-        }
+            spacerView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+            spacerView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
 
-        contentView.snp.remakeConstraints { (make) in
+            updateSpacerViewHeight()
+        }
+        
+        if let superview = contentView.superview {
+            NSLayoutConstraint.deactivate(contentView.constraints)
+            
             if bannerPosition == .top {
-                make.top.equalTo(spacerView.snp.bottom)
-                make.bottom.equalToSuperview()
+                contentView.topAnchor.constraint(equalTo: spacerView.bottomAnchor).isActive = true
+                contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
             } else {
-                make.top.equalToSuperview()
-                make.bottom.equalTo(spacerView.snp.top)
+                contentView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+                contentView.bottomAnchor.constraint(equalTo: spacerView.topAnchor).isActive = true
             }
-
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
+            
+            contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+            contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
         }
-
     }
 
     /**
          Updates the spacer view height. Specifically used for orientation changes.
      */
-    private func updateSpacerViewHeight(make: ConstraintMaker? = nil) {
+    private func updateSpacerViewHeight() {
         let finalHeight = spacerViewHeight()
-        if let make = make {
-            make.height.equalTo(finalHeight)
+        
+        if let heightConstriant = spacerViewHeightConstraint {
+            heightConstriant.constant = finalHeight
         } else {
-            spacerView.snp.updateConstraints({ (make) in
-                make.height.equalTo(finalHeight)
-            })
+            spacerViewHeightConstraint = spacerView.heightAnchor.constraint(equalToConstant: finalHeight)
+            spacerViewHeightConstraint?.isActive = true
         }
     }
 

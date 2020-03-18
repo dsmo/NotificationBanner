@@ -12,9 +12,7 @@
 		5C025F771EE9E09E00ADB444 /* BannerHapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F701EE9E09E00ADB444 /* BannerHapticGenerator.swift */; };
 		5C025F781EE9E09E00ADB444 /* BannerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F711EE9E09E00ADB444 /* BannerStyle.swift */; };
 		5C025F791EE9E09E00ADB444 /* BaseNotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F721EE9E09E00ADB444 /* BaseNotificationBanner.swift */; };
-		5C025F7A1EE9E09E00ADB444 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F731EE9E09E00ADB444 /* NotificationBanner.swift */; };
 		5C025F7B1EE9E09E00ADB444 /* NotificationBannerQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F741EE9E09E00ADB444 /* NotificationBannerQueue.swift */; };
-		5C025F7C1EE9E09E00ADB444 /* StatusBarNotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C025F751EE9E09E00ADB444 /* StatusBarNotificationBanner.swift */; };
 		5C34233C1EB50580004B804C /* CustomBannerColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C34233B1EB50580004B804C /* CustomBannerColors.swift */; };
 		5C40232C22DCC5E900FD9E11 /* FloatingNotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C40232B22DCC5E900FD9E11 /* FloatingNotificationBanner.swift */; };
 		5C8542E41EFDCA3A00AFBC90 /* BannerPositionFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8542E31EFDCA3A00AFBC90 /* BannerPositionFrame.swift */; };
@@ -37,9 +35,7 @@
 		5C025F701EE9E09E00ADB444 /* BannerHapticGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerHapticGenerator.swift; path = ../../NotificationBanner/Classes/BannerHapticGenerator.swift; sourceTree = "<group>"; };
 		5C025F711EE9E09E00ADB444 /* BannerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerStyle.swift; path = ../../NotificationBanner/Classes/BannerStyle.swift; sourceTree = "<group>"; };
 		5C025F721EE9E09E00ADB444 /* BaseNotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNotificationBanner.swift; path = ../../NotificationBanner/Classes/BaseNotificationBanner.swift; sourceTree = "<group>"; };
-		5C025F731EE9E09E00ADB444 /* NotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationBanner.swift; path = ../../NotificationBanner/Classes/NotificationBanner.swift; sourceTree = "<group>"; };
 		5C025F741EE9E09E00ADB444 /* NotificationBannerQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationBannerQueue.swift; path = ../../NotificationBanner/Classes/NotificationBannerQueue.swift; sourceTree = "<group>"; };
-		5C025F751EE9E09E00ADB444 /* StatusBarNotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusBarNotificationBanner.swift; path = ../../NotificationBanner/Classes/StatusBarNotificationBanner.swift; sourceTree = "<group>"; };
 		5C34233B1EB50580004B804C /* CustomBannerColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBannerColors.swift; sourceTree = "<group>"; };
 		5C40232B22DCC5E900FD9E11 /* FloatingNotificationBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingNotificationBanner.swift; path = ../../NotificationBanner/Classes/FloatingNotificationBanner.swift; sourceTree = "<group>"; };
 		5C8542E31EFDCA3A00AFBC90 /* BannerPositionFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerPositionFrame.swift; path = ../../NotificationBanner/Classes/BannerPositionFrame.swift; sourceTree = "<group>"; };
@@ -84,10 +80,8 @@
 				5C025F721EE9E09E00ADB444 /* BaseNotificationBanner.swift */,
 				5C40232B22DCC5E900FD9E11 /* FloatingNotificationBanner.swift */,
 				2B9CEC6021692C2100B5DEB9 /* GrowingNotificationBanner.swift */,
-				5C025F731EE9E09E00ADB444 /* NotificationBanner.swift */,
 				5C025F741EE9E09E00ADB444 /* NotificationBannerQueue.swift */,
 				5C8890A71F7155840032D605 /* NotificationBannerUtilities.swift */,
-				5C025F751EE9E09E00ADB444 /* StatusBarNotificationBanner.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -263,17 +257,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NotificationBanner_Example/Pods-NotificationBanner_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -287,9 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C025F7C1EE9E09E00ADB444 /* StatusBarNotificationBanner.swift in Sources */,
 				5CBD22471E836DE50041DC8F /* NorthCarolinaBannerView.swift in Sources */,
-				5C025F7A1EE9E09E00ADB444 /* NotificationBanner.swift in Sources */,
 				5C025F761EE9E09E00ADB444 /* BannerColors.swift in Sources */,
 				2B9CEC6121692C2100B5DEB9 /* GrowingNotificationBanner.swift in Sources */,
 				5C40232C22DCC5E900FD9E11 /* FloatingNotificationBanner.swift in Sources */,

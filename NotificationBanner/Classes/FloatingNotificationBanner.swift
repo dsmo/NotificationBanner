@@ -17,7 +17,6 @@
  */
 
 import UIKit
-import SnapKit
 
 open class FloatingNotificationBanner: GrowingNotificationBanner {
     
@@ -69,9 +68,12 @@ open class FloatingNotificationBanner: GrowingNotificationBanner {
         self.customView = customView
         
         contentView.addSubview(customView)
-        customView.snp.makeConstraints { (make) in
-            make.edges.equalTo(contentView)
-        }
+        NSLayoutConstraint.activate([
+            customView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            customView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            customView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            customView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
         
         spacerView.backgroundColor = customView.backgroundColor
     }
