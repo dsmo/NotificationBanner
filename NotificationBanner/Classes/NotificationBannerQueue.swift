@@ -28,6 +28,7 @@ public enum QueuePosition: Int {
 open class NotificationBannerQueue: NSObject {
 
     /// The default instance of the NotificationBannerQueue
+    @objc(defaultQueue)
     public static let `default` = NotificationBannerQueue()
 
     /// The notification banners currently placed on the queue

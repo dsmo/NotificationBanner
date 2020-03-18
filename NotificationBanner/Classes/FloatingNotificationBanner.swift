@@ -63,6 +63,7 @@ open class FloatingNotificationBanner: GrowingNotificationBanner {
         }
     }
     
+    @objc
     public init(customView: UIView) {
         super.init(style: .customView)
         self.customView = customView
@@ -77,6 +78,27 @@ open class FloatingNotificationBanner: GrowingNotificationBanner {
         ])
         
         spacerView.backgroundColor = customView.backgroundColor
+    }
+    
+    @objc
+    public func show(on viewController: UIViewController?,
+                     edgeInsets: UIEdgeInsets,
+                     cornerRadius: CGFloat,
+                     shadowOpacity: CGFloat,
+                     shadowBlurRadius: CGFloat,
+                     shadowOffset: UIOffset) {
+        show(queuePosition: .back,
+             bannerPosition: .top,
+             queue: .default,
+             on: viewController,
+             edgeInsets: edgeInsets,
+             cornerRadius: cornerRadius,
+             shadowColor: .black,
+             shadowOpacity: shadowOpacity,
+             shadowBlurRadius: shadowBlurRadius,
+             shadowCornerRadius: 0,
+             shadowOffset: shadowOffset,
+             shadowEdgeInsets: nil)
     }
     
     /**
