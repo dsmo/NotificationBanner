@@ -68,6 +68,7 @@ open class FloatingNotificationBanner: GrowingNotificationBanner {
         self.customView = customView
         
         contentView.addSubview(customView)
+        customView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             customView.topAnchor.constraint(equalTo: contentView.topAnchor),
             customView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

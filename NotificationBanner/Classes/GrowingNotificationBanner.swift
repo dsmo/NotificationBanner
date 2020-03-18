@@ -131,6 +131,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         
         if let leftView = leftView {
             outerStackView.addArrangedSubview(leftView)
+            leftView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 leftView.widthAnchor.constraint(equalToConstant: sideViewSize),
                 leftView.heightAnchor.constraint(equalToConstant: sideViewSize),
@@ -163,6 +164,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         
         if let rightView = rightView {
             outerStackView.addArrangedSubview(rightView)
+            rightView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 rightView.widthAnchor.constraint(equalToConstant: sideViewSize),
                 rightView.heightAnchor.constraint(equalToConstant: sideViewSize),
@@ -170,6 +172,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         }
         
         contentView.addSubview(outerStackView)
+        outerStackView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
             outerStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding).isActive = true
             outerStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding).isActive = true

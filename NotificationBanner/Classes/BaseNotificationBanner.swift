@@ -143,7 +143,13 @@ open class BaseNotificationBanner: UIView {
     
     /// The height constraint of spacerView
     private var spacerViewHeightConstraint: NSLayoutConstraint? = nil
-
+    
+    /// The other constraints used to pin of spacerView
+    private var spacerViewConstraints: [NSLayoutConstraint] = []
+    
+    /// The constraints used to pin contentView
+    private var contentViewConstraints: [NSLayoutConstraint] = []
+    
     /// The main window of the application which banner views are placed on
     private let appWindow: UIWindow? = {
         if #available(iOS 13.0, *) {
@@ -224,32 +230,40 @@ open class BaseNotificationBanner: UIView {
     private func createBannerConstraints(for bannerPosition: BannerPosition) {
 
         if let superview = spacerView.superview {
-            NSLayoutConstraint.deactivate(spacerView.constraints)
+            spacerView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.deactivate(spacerViewConstraints)
+            spacerViewConstraints.removeAll()
             
             if bannerPosition == .top {
-                spacerView.topAnchor.constraint(equalTo: superview.topAnchor, constant: -spacerViewDefaultOffset).isActive = true
+                spacerViewConstraints.append(spacerView.topAnchor.constraint(equalTo: superview.topAnchor, constant: -spacerViewDefaultOffset))
             } else {
-                spacerView.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -spacerViewDefaultOffset).isActive = true
+                spacerViewConstraints.append(spacerView.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -spacerViewDefaultOffset))
             }
-            spacerView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-            spacerView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
-
+            spacerViewConstraints.append(spacerView.leadingAnchor.constraint(equalTo: superview.leadingAnchor))
+            spacerViewConstraints.append(spacerView.trailingAnchor.constraint(equalTo: superview.trailingAnchor))
+            
+            NSLayoutConstraint.activate(spacerViewConstraints)
+            
             updateSpacerViewHeight()
         }
         
         if let superview = contentView.superview {
-            NSLayoutConstraint.deactivate(contentView.constraints)
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.deactivate(contentViewConstraints)
+            contentViewConstraints.removeAll()
             
             if bannerPosition == .top {
-                contentView.topAnchor.constraint(equalTo: spacerView.bottomAnchor).isActive = true
-                contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+                contentViewConstraints.append(contentView.topAnchor.constraint(equalTo: spacerView.bottomAnchor))
+                contentViewConstraints.append(contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor))
             } else {
-                contentView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-                contentView.bottomAnchor.constraint(equalTo: spacerView.topAnchor).isActive = true
+                contentViewConstraints.append(contentView.topAnchor.constraint(equalTo: superview.topAnchor))
+                contentViewConstraints.append(contentView.bottomAnchor.constraint(equalTo: spacerView.topAnchor))
             }
             
-            contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-            contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+            contentViewConstraints.append(contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor))
+            contentViewConstraints.append(contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor))
+            
+            NSLayoutConstraint.activate(contentViewConstraints)
         }
     }
 
@@ -261,9 +275,11 @@ open class BaseNotificationBanner: UIView {
         
         if let heightConstriant = spacerViewHeightConstraint {
             heightConstriant.constant = finalHeight
+            heightConstriant.isActive = true
         } else {
-            spacerViewHeightConstraint = spacerView.heightAnchor.constraint(equalToConstant: finalHeight)
-            spacerViewHeightConstraint?.isActive = true
+            let heightConstraint = spacerView.heightAnchor.constraint(equalToConstant: finalHeight)
+            heightConstraint.isActive = true
+            spacerViewHeightConstraint = heightConstraint
         }
     }
 
